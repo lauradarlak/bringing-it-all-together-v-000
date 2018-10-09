@@ -52,11 +52,9 @@ class Dog
       WHERE id = ?
       LIMIT 1
     SQL
-    self
 
-    # DB[:conn].execute(sql, id).map do |row|
-    #   self.new_from_db(row)
-    # end.first # chaining, grab the first element frmo the returned array
+    row = DB[:conn].execute(sql, id)[0]
+    Dog.new(id: row[0], name: row[1], breed: row[2])
   end
 
 
