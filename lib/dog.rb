@@ -39,12 +39,10 @@ class Dog
     self
   end
 
-  def self.create(dog_hash)
-    dog_hash.each do |attribute, data|
-      self.send(("#{attribute}="), data)
-      self.save
-    end
-    self.new
+  def self.create(name:, breed:)
+    new_dog = self.new(name: name, breed: breed)
+    new_dog.save
+    new_dog.new
   end
 
 
