@@ -42,6 +42,7 @@ class Dog
   def self.create(dog_hash)
     dog_hash.each do |attribute, data|
       self.send(("#{attribute}="), data)
+      self.save
     end
     self.new
   end
