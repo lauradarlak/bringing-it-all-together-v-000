@@ -45,6 +45,20 @@ class Dog
     new_dog
   end
 
+  def self.find_by_id(id)
+    sql = <<-SQL
+      SELECT *
+      FROM dogs
+      WHERE id = ?
+      LIMIT 1
+    SQL
+    self
+
+    # DB[:conn].execute(sql, id).map do |row|
+    #   self.new_from_db(row)
+    # end.first # chaining, grab the first element frmo the returned array
+  end
+
 
   # def self.new_from_db(row)
   #   self.new(id: row[0], name: row[1], breed: row[2])
