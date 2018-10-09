@@ -43,7 +43,7 @@ class Dog
     dog_hash.each do |attribute, data|
       self.send(("#{attribute}="), data)
     end
-    self
+    self.new
   end
 
 
