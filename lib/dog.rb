@@ -66,7 +66,7 @@ class Dog
       LIMIT 1
     SQL
 
-    DB[:conn].execute(sql).map do |row|
+    DB[:conn].execute(sql, name).map do |row|
      self.new_from_db(row)
     end.first # chaining, grab the first element frmo the returned array
   end
